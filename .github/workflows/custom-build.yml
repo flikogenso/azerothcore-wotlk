@@ -1,9 +1,13 @@
 name: Build Custom Server
 on:
+  workflow_dispatch:
+
   push:
     branches:
       - master
 jobs:
+  workflow_dispatch:
+
   build-and-push:
     runs-on: ubuntu-latest
     permissions:
@@ -32,6 +36,8 @@ jobs:
         with:
           context: .
           file: apps/docker/Dockerfile
+  workflow_dispatch:
+
           push: true
           tags: ghcr.io/${{ github.repository }}-worldserver:master
           target: worldserver
@@ -40,6 +46,8 @@ jobs:
         with:
           context: .
           file: apps/docker/Dockerfile
+  workflow_dispatch:
+
           push: true
           tags: ghcr.io/${{ github.repository }}-authserver:master
           target: authserver
@@ -48,6 +56,8 @@ jobs:
         with:
           context: .
           file: apps/docker/Dockerfile
+  workflow_dispatch:
+
           push: true
           tags: ghcr.io/${{ github.repository }}-client-data:master
           target: client-data
@@ -56,6 +66,8 @@ jobs:
         with:
           context: .
           file: apps/docker/Dockerfile
+  workflow_dispatch:
+
           push: true
           tags: ghcr.io/${{ github.repository }}-db-import:master
           target: db-import
